@@ -1,0 +1,9 @@
+CC=gcc
+CFLAGS=-Wall -pthread
+LDFLAGS=-L. -lksocket
+
+initksocket: initksocket.c
+	$(CC) $(CFLAGS) initksocket.c $(LDFLAGS) -o initksocket
+
+clean:
+	rm -f initksocket

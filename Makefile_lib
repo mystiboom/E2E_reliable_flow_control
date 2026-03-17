@@ -1,0 +1,11 @@
+CC=gcc
+CFLAGS=-Wall -c 
+
+libksocket.a: ksocket.o
+	ar rcs libksocket.a ksocket.o
+
+ksocket.o: ksocket.c ksocket.h
+	$(CC) $(CFLAGS) ksocket.c 
+
+clean:
+	rm -f *.o *.a 

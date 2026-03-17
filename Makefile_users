@@ -1,0 +1,14 @@
+CC=gcc
+CFLAGS=-Wall
+LDFLAGS=-L. -lksocket
+
+all: user1 user2
+
+user1: user1.c libksocket.a
+	$(CC) $(CFLAGS) user1.c $(LDFLAGS) -o user1 
+
+user2: user2.c libksocket.a
+	$(CC) $(CFLAGS) user2.c $(LDFLAGS) -o user2
+
+clean:
+	rm -f user1 user2
