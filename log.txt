@@ -1,0 +1,328 @@
+Packet transmitted: seq 1
+Packet new received: seq 1
+Packet transmitted: seq 2
+Packet new received: seq 2
+Packet transmitted: seq 3
+Packet transmitted: seq 4
+Packet transmitted: seq 5
+Packet transmitted: seq 6
+Packet transmitted: seq 7
+Packet transmitted: seq 8
+Packet transmitted: seq 9
+Packet transmitted: seq 10
+ACK received: seq 1
+Packet new received: seq 3
+ACK received: seq 2
+Packet new received: seq 4
+ACK received: seq 3
+Packet new received: seq 5
+ACK received: seq 4
+Packet new received: seq 6
+ACK received: seq 5
+Packet new received: seq 7
+ACK received: seq 6
+Packet new received: seq 8
+ACK received: seq 7
+Packet new received: seq 9
+ACK received: seq 8
+Packet new received: seq 10
+ACK received: seq 9
+ACK received: seq 10
+Packet transmitted: seq 11
+Packet transmitted: seq 12
+Packet new received: seq 12
+ACK received: seq 10
+Packet transmitted: seq 13
+Packet new received: seq 13
+Packet new received: seq 14
+Packet transmitted: seq 14
+Packet transmitted: seq 15
+Packet transmitted: seq 16
+Packet transmitted: seq 17
+Packet transmitted: seq 18
+Packet transmitted: seq 19
+ACK received: seq 10
+Packet new received: seq 15
+ACK received: seq 10
+Packet new received: seq 16
+ACK received: seq 10
+Packet new received: seq 17
+ACK received: seq 10
+Packet new received: seq 18
+ACK received: seq 10
+Packet new received: seq 19
+ACK received: seq 10
+ACK received: seq 10
+Packet retransmitted: seq 11
+Packet retransmitted: seq 12
+Packet new received: seq 11
+ACK received: seq 19
+ACK received: seq 19
+Packet transmitted: seq 20
+Packet new received: seq 20
+ACK received: seq 20
+Packet transmitted: seq 21
+Packet new received: seq 21
+Packet transmitted: seq 22
+Packet transmitted: seq 23
+Packet new received: seq 22
+Packet transmitted: seq 24
+Packet transmitted: seq 25
+Packet transmitted: seq 26
+Packet transmitted: seq 27
+Packet transmitted: seq 28
+Packet transmitted: seq 29
+ACK received: seq 21
+Packet new received: seq 23
+ACK received: seq 22
+Packet new received: seq 24
+ACK received: seq 23
+Packet new received: seq 25
+ACK received: seq 24
+Packet new received: seq 26
+ACK received: seq 25
+Packet new received: seq 27
+ACK received: seq 26
+Packet new received: seq 28
+ACK received: seq 27
+Packet new received: seq 29
+ACK received: seq 28
+ACK received: seq 29
+Packet transmitted: seq 30
+Packet new received: seq 30
+Packet new received: seq 31
+Packet transmitted: seq 31
+Packet transmitted: seq 32
+Packet transmitted: seq 33
+Packet transmitted: seq 34
+Packet transmitted: seq 35
+Packet transmitted: seq 36
+ACK received: seq 30
+Packet new received: seq 32
+ACK received: seq 31
+Packet new received: seq 33
+ACK received: seq 32
+ACK received: seq 33
+Packet new received: seq 35
+Packet new received: seq 36
+ACK received: seq 33
+ACK received: seq 33
+Packet transmitted: seq 37
+Packet transmitted: seq 38
+Packet transmitted: seq 39
+Packet new received: seq 37
+Packet new received: seq 38
+ACK received: seq 33
+ACK received: seq 33
+Packet retransmitted: seq 34
+Packet retransmitted: seq 35
+Packet retransmitted: seq 36
+Packet new received: seq 34
+ACK received: seq 38
+ACK received: seq 38
+ACK received: seq 38
+Packet retransmitted: seq 39
+Packet transmitted: seq 40
+Packet transmitted: seq 41
+Packet transmitted: seq 42
+Packet transmitted: seq 43
+Packet transmitted: seq 44
+Packet new received: seq 39
+Packet new received: seq 40
+ACK received: seq 39
+Packet new received: seq 41
+ACK received: seq 40
+Packet new received: seq 42
+ACK received: seq 41
+Packet new received: seq 43
+ACK received: seq 42
+Packet new received: seq 44
+ACK received: seq 43
+ACK received: seq 44
+Packet transmitted: seq 45
+Packet transmitted: seq 46
+Packet transmitted: seq 47
+Packet new received: seq 45
+Packet new received: seq 46
+Packet transmitted: seq 48
+Packet transmitted: seq 49
+Packet transmitted: seq 50
+Packet transmitted: seq 51
+Packet transmitted: seq 52
+ACK received: seq 45
+Packet new received: seq 47
+ACK received: seq 46
+Packet new received: seq 48
+ACK received: seq 47
+Packet new received: seq 49
+ACK received: seq 48
+Packet new received: seq 50
+ACK received: seq 49
+Packet new received: seq 51
+ACK received: seq 50
+Packet new received: seq 52
+ACK received: seq 51
+ACK received: seq 52
+Packet transmitted: seq 53
+Packet transmitted: seq 54
+Packet transmitted: seq 55
+Packet transmitted: seq 56
+Packet new received: seq 53
+ACK received: seq 53
+Packet new received: seq 55
+Packet new received: seq 56
+ACK received: seq 53
+ACK received: seq 53
+Packet transmitted: seq 57
+Packet transmitted: seq 58
+Packet transmitted: seq 59
+Packet transmitted: seq 60
+Packet new received: seq 57
+Packet new received: seq 58
+ACK received: seq 53
+Packet new received: seq 59
+ACK received: seq 53
+Packet new received: seq 60
+ACK received: seq 53
+ACK received: seq 53
+Packet retransmitted: seq 55
+Packet retransmitted: seq 56
+Packet retransmitted: seq 54
+ACK received: seq 53
+Packet new received: seq 54
+ACK received: seq 53
+ACK received: seq 60
+Packet transmitted: seq 61
+Packet transmitted: seq 62
+Packet transmitted: seq 63
+Packet new received: seq 61
+Packet new received: seq 62
+ACK received: seq 61
+Packet new received: seq 63
+ACK received: seq 62
+ACK received: seq 63
+Packet transmitted: seq 64
+Packet transmitted: seq 65
+Packet new received: seq 65
+Packet transmitted: seq 66
+Packet transmitted: seq 67
+Packet transmitted: seq 68
+Packet transmitted: seq 69
+Packet transmitted: seq 70
+Packet new received: seq 66
+ACK received: seq 63
+Packet new received: seq 67
+ACK received: seq 63
+Packet new received: seq 68
+ACK received: seq 63
+Packet new received: seq 69
+Packet new received: seq 70
+ACK received: seq 63
+ACK received: seq 63
+Packet retransmitted: seq 64
+Packet retransmitted: seq 65
+Packet retransmitted: seq 66
+Packet new received: seq 64
+Packet retransmitted: seq 67
+Packet retransmitted: seq 68
+Packet retransmitted: seq 69
+Packet retransmitted: seq 70
+ACK received: seq 70
+ACK received: seq 70
+ACK received: seq 70
+ACK received: seq 70
+ACK received: seq 70
+ACK received: seq 70
+ACK received: seq 70
+Packet transmitted: seq 71
+Packet transmitted: seq 72
+Packet new received: seq 71
+Packet new received: seq 72
+Packet transmitted: seq 73
+Packet transmitted: seq 74
+Packet transmitted: seq 75
+Packet transmitted: seq 76
+Packet transmitted: seq 77
+Packet transmitted: seq 78
+Packet transmitted: seq 79
+Packet transmitted: seq 80
+ACK received: seq 71
+Packet new received: seq 73
+ACK received: seq 72
+Packet new received: seq 74
+ACK received: seq 73
+Packet new received: seq 75
+ACK received: seq 74
+Packet new received: seq 76
+ACK received: seq 75
+Packet new received: seq 77
+ACK received: seq 76
+Packet new received: seq 78
+ACK received: seq 77
+Packet new received: seq 79
+ACK received: seq 78
+Packet new received: seq 80
+ACK received: seq 79
+ACK received: seq 80
+Packet transmitted: seq 81
+Packet transmitted: seq 82
+Packet transmitted: seq 83
+Packet transmitted: seq 84
+Packet new received: seq 81
+Packet new received: seq 82
+Packet transmitted: seq 85
+Packet transmitted: seq 86
+Packet transmitted: seq 87
+ACK received: seq 81
+Packet new received: seq 83
+ACK received: seq 82
+Packet new received: seq 84
+ACK received: seq 83
+Packet new received: seq 85
+ACK received: seq 84
+Packet new received: seq 86
+ACK received: seq 85
+Packet new received: seq 87
+ACK received: seq 86
+ACK received: seq 87
+Packet transmitted: seq 88
+Packet transmitted: seq 89
+Packet transmitted: seq 90
+Packet transmitted: seq 91
+Packet transmitted: seq 92
+Packet new received: seq 88
+Packet new received: seq 89
+ACK received: seq 88
+Packet new received: seq 90
+ACK received: seq 89
+Packet new received: seq 91
+ACK received: seq 90
+Packet new received: seq 92
+ACK received: seq 91
+ACK received: seq 92
+Packet transmitted: seq 93
+Packet transmitted: seq 94
+Packet transmitted: seq 95
+Packet new received: seq 93
+Packet new received: seq 94
+Packet transmitted: seq 96
+Packet transmitted: seq 97
+Packet transmitted: seq 98
+Packet transmitted: seq 99
+Packet transmitted: seq 100
+ACK received: seq 93
+Packet new received: seq 95
+ACK received: seq 94
+Packet new received: seq 96
+ACK received: seq 95
+Packet new received: seq 97
+ACK received: seq 96
+Packet new received: seq 98
+Packet new received: seq 99
+ACK received: seq 98
+Packet new received: seq 100
+ACK received: seq 99
+ACK received: seq 100
+Packet transmitted: seq 101
+Packet new received: seq 101
+ACK received: seq 101

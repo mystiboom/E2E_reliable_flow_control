@@ -102,7 +102,10 @@ int k_sendto(int sockfd,const void *buf,size_t len,int flag,const struct sockadd
     {
         if(!sm->sockets[sockfd].send_buffer[i].is_valid)
         {
-            memcpy(sm->sockets[sockfd].send_buffer[i].payload,buf,len>MSG_SIZE ? MSG_SIZE : len);
+            uint16_t actual_len = len > MSG_SIZE ? MSG_SIZE : len;
+            memcpy(sm->sockets[sockfd].send_buffer[i].payload,buf,actual_len);
+            
+            sm->sockets[sockfd].send_buffer[i].header.msg_len = actual_len;
             sm->sockets[sockfd].send_buffer[i].is_valid=true;
             sm->sockets[sockfd].send_buffer[i].send_time=0;
             sm->sockets[sockfd].send_buffer[i].header.seq_num = sm->sockets[sockfd].swnd.unacked_seq[0]++;
@@ -133,14 +136,16 @@ int k_recvfrom(int sockfd, void *buf,size_t len ,int flags,struct sockaddr *srca
     {
         if(sm->sockets[sockfd].recv_buffer[i].is_valid && sm->sockets[sockfd].recv_buffer[i].header.seq_num == exp_seq)
         {
-            memcpy(buf,sm->sockets[sockfd].recv_buffer[i].payload,len>MSG_SIZE ? MSG_SIZE:len);
+            uint16_t actual_len = sm->sockets[sockfd].recv_buffer[i].header.msg_len;
+            memcpy(buf,sm->sockets[sockfd].recv_buffer[i].payload, actual_len);
+            
             sm->sockets[sockfd].recv_buffer[i].is_valid=false;
             sm->sockets[sockfd].rwnd.size++;
             sm->sockets[sockfd].rwnd.expected_seq[1]++;
             if(sm->sockets[sockfd].rwnd.expected_seq[1] == 0) sm->sockets[sockfd].rwnd.expected_seq[1] = 1;
 
             pthread_mutex_unlock(&sm->sockets[sockfd].mutex);
-            return len;
+            return actual_len;
         }
     }
     ktp_err=ENOTMESSAGE;

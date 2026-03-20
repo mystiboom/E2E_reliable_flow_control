@@ -24,6 +24,7 @@ typedef struct {
     uint8_t seq_num;
     bool is_ack;
     uint8_t rwnd_size;
+    uint16_t msg_len;
 }KTP_header;
 
 typedef struct {

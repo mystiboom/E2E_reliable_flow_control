@@ -58,13 +58,13 @@ void *thread_R(void *arg) {
                     
                     pthread_mutex_lock(&sm->sockets[i].mutex);
                     if (!ims.header.is_ack) {
-                        sm->sockets[i].nospace = false;
                         uint8_t nxp = sm->sockets[i].rwnd.expected_seq[0];
                         uint8_t seq = ims.header.seq_num;
-                        uint8_t off = seq - nxp;
-                        if (seq < nxp) off--;
                         
-                        if (off < MAX_WIN_SIZE) {
+                        uint8_t dist = seq - nxp;
+                        if (seq < nxp) dist--;
+                        
+                        if (dist < MAX_WIN_SIZE) {
                             bool dup = false;
                             for (int j = 0; j < MAX_WIN_SIZE; j++) {
                                 if (sm->sockets[i].recv_buffer[j].is_valid && sm->sockets[i].recv_buffer[j].header.seq_num == seq) {
@@ -73,11 +73,15 @@ void *thread_R(void *arg) {
                                 }
                             }
                             if (!dup && sm->sockets[i].rwnd.size > 0) {
+                                sm->sockets[i].nospace = false;
                                 for(int j = 0; j < MAX_WIN_SIZE; j++) {
                                     if(!sm->sockets[i].recv_buffer[j].is_valid) {
                                         memcpy(&sm->sockets[i].recv_buffer[j], &ims, sizeof(KTP_msg));
                                         sm->sockets[i].recv_buffer[j].is_valid = true;
+                                        
                                         printf("Packet new received: seq %d\n", seq);
+                                        fflush(stdout); // Force write to log.txt
+                                        
                                         break;
                                     }
                                 }
@@ -100,6 +104,7 @@ void *thread_R(void *arg) {
                         }
                         
                         KTP_msg ack;
+                        memset(&ack, 0, sizeof(KTP_msg));
                         ack.header.is_ack = true;
                         ack.header.seq_num = sm->sockets[i].rwnd.expected_seq[0] - 1;
                         if(ack.header.seq_num == 0) ack.header.seq_num = 255;
@@ -108,14 +113,17 @@ void *thread_R(void *arg) {
                     } else {
                         uint8_t aseq = ims.header.seq_num;
                         sm->sockets[i].swnd.size = ims.header.rwnd_size;
+                        
                         printf("ACK received: seq %d\n", aseq);
+                        fflush(stdout); // Force write to log.txt
                         
                         for (int j = 0; j < MAX_WIN_SIZE; j++) {
                             if (sm->sockets[i].send_buffer[j].is_valid) {
                                 uint8_t ssq = sm->sockets[i].send_buffer[j].header.seq_num;
-                                uint8_t dif = aseq - ssq;
-                                if (aseq < ssq) dif--;
-                                if (dif < MAX_WIN_SIZE * 2) {
+                                uint8_t ack_dist = aseq - ssq;
+                                if (aseq < ssq) ack_dist--;
+                                
+                                if (ack_dist < 128) {
                                     sm->sockets[i].send_buffer[j].is_valid = false;
                                 }
                             }
@@ -130,6 +138,7 @@ void *thread_R(void *arg) {
                     pthread_mutex_lock(&sm->sockets[i].mutex);
                     if (sm->sockets[i].nospace && sm->sockets[i].rwnd.size > 0) {
                         KTP_msg dak;
+                        memset(&dak, 0, sizeof(KTP_msg));
                         dak.header.is_ack = true;
                         dak.header.seq_num = sm->sockets[i].rwnd.expected_seq[0] - 1;
                         if(dak.header.seq_num == 0) dak.header.seq_num = 255;
@@ -165,7 +174,9 @@ void *thread_S(void *arg) {
                         if (ctm - sm->sockets[i].send_buffer[j].send_time >= T) {
                             sendto(sm->sockets[i].udp_sockfd, &sm->sockets[i].send_buffer[j], sizeof(KTP_msg), 0, (struct sockaddr *)&sm->sockets[i].remote_addr, sizeof(struct sockaddr_in));
                             sm->sockets[i].send_buffer[j].send_time = time(NULL);
+                            
                             printf("Packet retransmitted: seq %d\n", sm->sockets[i].send_buffer[j].header.seq_num);
+                            fflush(stdout); // Force write to log.txt
                         }
                     }
                 }
@@ -184,7 +195,9 @@ void *thread_S(void *arg) {
                                 next_to_send = j;
                                 found = true;
                             } else {
-                                if ((uint8_t)(min_seq - seq) < 128) {
+                                uint8_t d = seq - min_seq;
+                                if (seq < min_seq) d--;
+                                if (d > 128) {
                                     min_seq = seq;
                                     next_to_send = j;
                                 }
@@ -197,7 +210,10 @@ void *thread_S(void *arg) {
                         sm->sockets[i].send_buffer[next_to_send].send_time = time(NULL);
                         sendto(sm->sockets[i].udp_sockfd, &sm->sockets[i].send_buffer[next_to_send], sizeof(KTP_msg), 0, (struct sockaddr *)&sm->sockets[i].remote_addr, sizeof(struct sockaddr_in));
                         csd--;
+                        
                         printf("Packet transmitted: seq %d\n", sm->sockets[i].send_buffer[next_to_send].header.seq_num);
+                        fflush(stdout); // Force write to log.txt
+                        
                     } else {
                         break;
                     }
